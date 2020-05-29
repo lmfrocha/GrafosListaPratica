@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace listaPratica
 {
-    class Linha
+    class Monte
     {
         int y0;
         int m;
 
-        public Linha()
+        public Monte()
         {
         }
 
