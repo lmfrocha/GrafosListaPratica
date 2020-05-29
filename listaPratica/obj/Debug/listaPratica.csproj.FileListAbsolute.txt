@@ -1,0 +1,7 @@
+C:\Users\l.rocha\Desktop\Grafos\listaPratica\listapratica\listaPratica\listaPratica\bin\Debug\listaPratica.exe.config
+C:\Users\l.rocha\Desktop\Grafos\listaPratica\listapratica\listaPratica\listaPratica\bin\Debug\listaPratica.exe
+C:\Users\l.rocha\Desktop\Grafos\listaPratica\listapratica\listaPratica\listaPratica\bin\Debug\listaPratica.pdb
+C:\Users\l.rocha\Desktop\Grafos\listaPratica\listapratica\listaPratica\listaPratica\obj\Debug\listaPratica.csprojAssemblyReference.cache
+C:\Users\l.rocha\Desktop\Grafos\listaPratica\listapratica\listaPratica\listaPratica\obj\Debug\listaPratica.csproj.CoreCompileInputs.cache
+C:\Users\l.rocha\Desktop\Grafos\listaPratica\listapratica\listaPratica\listaPratica\obj\Debug\listaPratica.exe
+C:\Users\l.rocha\Desktop\Grafos\listaPratica\listapratica\listaPratica\listaPratica\obj\Debug\listaPratica.pdb
