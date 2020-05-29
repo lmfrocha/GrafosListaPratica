@@ -12,17 +12,37 @@ namespace listaPratica
         static String caminhoArquivo = @"C:\var\grafo.txt";
         public static void lerArquivo()
         {
-            using (StreamReader sr = File.OpenText(caminhoArquivo))
-            {
-                String[] documento = File.ReadAllLines(caminhoArquivo);
 
-                foreach (string linha in documento)
+            using (StreamReader sr = new StreamReader(caminhoArquivo))
+            {
+                Boolean hasNext = false;
+                String [] linha = sr.ReadLine().Split(' ');
+
+                List<Linha> listaMontes = new List<Linha>();
+
+                int qtdLinhasToRead = int.Parse(linha[0]);
+                int qtdMontesToFormar = int.Parse(linha[1]);
+
+                /*
+                 * For que le a quantidade de linhas estipuladas e cria os montes
+                 */
+                for(int i = 0; i<qtdLinhasToRead; i++)
                 {
-                    string[] dados = linha.Split(' ');
-                    Console.WriteLine(dados[0] +" " + dados[1]);
+                    Linha ln = new Linha();
+
+                    string [] proximaLinha = sr.ReadLine().Split(' ');
+
+                    ln.Y0 = int.Parse(proximaLinha[0]);
+                    ln.M = int.Parse(proximaLinha[1]);
+                    hasNext = qtdLinhasToRead == i;
+
+                    listaMontes.Add(ln);
+
+                    Console.WriteLine("Linha ponto x: " + ln.Y0 + " Linha ponto y: "+ ln.M);
+                   
                 }
 
-                    
+                Console.ReadKey();
             }
 
         }
@@ -31,8 +51,7 @@ namespace listaPratica
         {
 
             lerArquivo();
-          
-            Console.ReadKey();
+                     
         }
     }
 }
