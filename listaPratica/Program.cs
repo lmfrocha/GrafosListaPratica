@@ -12,7 +12,7 @@ namespace listaPratica
         static String caminhoArquivo = @"C:\var\grafo.txt";
         public static void lerArquivo()
         {
-
+            
             using (StreamReader sr = new StreamReader(caminhoArquivo))
             {
                 Boolean hasNext = false;
