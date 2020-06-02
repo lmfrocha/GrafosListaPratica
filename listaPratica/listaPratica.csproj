@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Floresta.cs" />
-    <Compile Include="Monte.cs" />
+    <Compile Include="Montes.cs" />
+    <Compile Include="PosicoesPesos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace listaPratica
 {
-    class Monte
+    public class PosicoesPesos
     {
-        int y0;
-        int m;
+        public int posicoes;
+        public int pesos;
 
-        public Monte()
+        public PosicoesPesos()
         {
+            pesos = 0;
+            posicoes = 0;
         }
-
-        public int Y0 { get => y0; set => y0 = value; }
-        public int M { get => m; set => m = value; }
     }
 }
