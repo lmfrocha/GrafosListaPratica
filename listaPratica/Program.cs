@@ -86,10 +86,9 @@ namespace listaPratica
                                       { 0, 0, 0, 0, 0, 2, 0, 1, 6 },
                                       { 8, 11, 0, 0, 0, 0, 1, 0, 7 },
                                       { 0, 0, 2, 0, 0, 0, 6, 7, 0 } };
-            Grafos t = new Grafos();
 
-            t.dijkstra(graph, 0);
-
+            Grafos.Implementacao(graph, 0, 9);
+                        
             Console.ReadKey();
         }
     }

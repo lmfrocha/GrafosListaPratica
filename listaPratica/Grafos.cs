@@ -8,93 +8,55 @@ namespace listaPratica
 {
     public class Grafos
     {
-        // A utility function to find the 
-        // vertex with minimum distance 
-        // value, from the set of vertices 
-        // not yet included in shortest 
-        // path tree 
-        static int V = 9;
-        int minDistance(int[] dist, bool[] sptSet)
+        private static int MinimumDistance(int[] distance, bool[] shortestPathTreeSet, int verticesCount)
         {
-            // Initialize min value 
-            int min = int.MaxValue, min_index = -1;
+            int min = int.MaxValue;
+            int minIndex = 0;
 
-            for (int v = 0; v < V; v++)
-                if (sptSet[v] == false && dist[v] <= min)
+            for (int v = 0; v < verticesCount; ++v)
+            {
+                if (shortestPathTreeSet[v] == false && distance[v] <= min)
                 {
-                    min = dist[v];
-                    min_index = v;
+                    min = distance[v];
+                    minIndex = v;
                 }
-
-            return min_index;
-        }
-
-        // A utility function to print 
-        // the constructed distance array 
-        void printSolution(int[] dist, int n)
-        {
-            Console.Write("Vertex     Distance "
-                          + "from Source\n");
-            for (int i = 0; i < V; i++)
-                Console.Write(i + " \t\t " + dist[i] + "\n");
-        }
-
-        // Function that implements Dijkstra's 
-        // single source shortest path algorithm 
-        // for a graph represented using adjacency 
-        // matrix representation 
-        public void dijkstra(int[,] graph, int src)
-        {
-            int[] dist = new int[V]; // The output array. dist[i] 
-                                     // will hold the shortest 
-                                     // distance from src to i 
-
-            // sptSet[i] will true if vertex 
-            // i is included in shortest path 
-            // tree or shortest distance from 
-            // src to i is finalized 
-            bool[] sptSet = new bool[V];
-
-            // Initialize all distances as 
-            // INFINITE and stpSet[] as false 
-            for (int i = 0; i < V; i++)
-            {
-                dist[i] = int.MaxValue;
-                sptSet[i] = false;
             }
 
-            // Distance of source vertex 
-            // from itself is always 0 
-            dist[src] = 0;
+            return minIndex;
+        }
 
-            // Find shortest path for all vertices 
-            for (int count = 0; count < V - 1; count++)
+        private static void Print(int[] distance, int verticesCount)
+        {
+            Console.WriteLine("Vertex    Distance from source");
+
+            for (int i = 0; i < verticesCount; ++i)
+                Console.WriteLine("{0}\t  {1}", i, distance[i]);
+        }
+
+        public static void Implementacao(int[,] graph, int source, int verticesCount)
+        {
+            int[] distance = new int[verticesCount];
+            bool[] shortestPathTreeSet = new bool[verticesCount];
+
+            for (int i = 0; i < verticesCount; ++i)
             {
-                // Pick the minimum distance vertex 
-                // from the set of vertices not yet 
-                // processed. u is always equal to 
-                // src in first iteration. 
-                int u = minDistance(dist, sptSet);
-
-                // Mark the picked vertex as processed 
-                sptSet[u] = true;
-
-                // Update dist value of the adjacent 
-                // vertices of the picked vertex. 
-                for (int v = 0; v < V; v++)
-
-                    // Update dist[v] only if is not in 
-                    // sptSet, there is an edge from u 
-                    // to v, and total weight of path 
-                    // from src to v through u is smaller 
-                    // than current value of dist[v] 
-                    if (!sptSet[v] && graph[u, v] != 0 &&
-                         dist[u] != int.MaxValue && dist[u] + graph[u, v] < dist[v])
-                        dist[v] = dist[u] + graph[u, v];
+                distance[i] = int.MaxValue;
+                shortestPathTreeSet[i] = false;
             }
 
-            // print the constructed distance array 
-            printSolution(dist, V);
+            distance[source] = 0;
+
+            for (int count = 0; count < verticesCount - 1; ++count)
+            {
+                int u = MinimumDistance(distance, shortestPathTreeSet, verticesCount);
+                shortestPathTreeSet[u] = true;
+
+                for (int v = 0; v < verticesCount; ++v)
+                    if (!shortestPathTreeSet[v] && Convert.ToBoolean(graph[u, v]) && distance[u] != int.MaxValue && distance[u] + graph[u, v] < distance[v])
+                        distance[v] = distance[u] + graph[u, v];
+            }
+
+            Print(distance, verticesCount);
         }
 
     }
